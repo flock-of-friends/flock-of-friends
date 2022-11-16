@@ -13,10 +13,10 @@ const DisplayAllEvents = () => {
         <section className='allEventsSection'>
             <h2>Check out all these events people have made!</h2>
             <Link to='/displayAllEvents/displayAllTmEvents'>
-            <button>tm</button>
+            <button>TM</button>
             </Link>
             <Link to='/displayAllEvents/displayAllBoredEvents'>
-            <button>bored</button>
+            <button>Bored</button>
             </Link>
             <Outlet />
         </section>
