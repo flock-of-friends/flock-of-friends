@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 // Config details
 import app from '../../firebase';
-
+// hahahha
 const BoredForm = () => {
 
     const urlParamsValue = useParams();
