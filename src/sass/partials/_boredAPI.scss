@@ -86,9 +86,18 @@
             font-size: 0.7rem;
             text-transform: uppercase;
             color: $blackColor;
+            max-width: 75%;
+        }
+
+        .componentContainer{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .eventBtn {
+            margin: 1rem 0;
             padding: 15px;
             border-radius: 1rem;
 

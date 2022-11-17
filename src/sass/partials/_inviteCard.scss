@@ -27,8 +27,10 @@
         border: 10px double #f7f5f1;
         border-radius: 1rem;
         background-color: #71982f;
+
         width: clamp(375px, 75%, 750px);
         margin: 2rem auto;
+
         .activityInfo {
             display: flex;
             flex-direction: column;
@@ -49,6 +51,7 @@
                 font:italic 1.5rem $bodyFont;
                 color: rgb(68, 70, 67);
                 margin-bottom: .8rem;
+                padding-top: 0.8rem;
             }
             p{
                 font: 1.2rem $bodyFont;
@@ -58,20 +61,19 @@
         }
 
         .eventTheme{
-            padding-top: 0;
             text-transform: capitalize;
-            font-family: $headingFont;
-            font-size: clamp(3rem, 0.25vw, 3rem);
+            font: 3rem $headingFont;
             color: $whiteColor;
             margin: 1.5rem;
         }
         .host {
             font: 1.2rem $bodyFont;
             margin-bottom: 1rem;
+            margin-top: 0.8rem;
             color: rgb(68, 70, 67);
             span{
                 font:1.5rem;
-                text-transform: uppercase;
+                text-transform: capitalize;
                 font-weight: bold;
             }
         }
@@ -89,7 +91,7 @@
     color: rgb(0, 0, 0);
     background-color: #f8bd01;
     transition: 0.25s;
-    margin: 0.5rem auto;
+    margin: 1.5rem auto;
 }
 
 .descriptionText{
@@ -97,11 +99,16 @@
     height: 100px;
     overflow-wrap: break-word;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
         p {
             font: 1.2rem $bodyFont;
             color: rgb(68, 70, 67);
             display: inline;
-            border-bottom: solid 1px #000;
             padding-bottom: 0.02rem;
+            &:first-child {
+                text-decoration: underline;
+            }
         }
 }

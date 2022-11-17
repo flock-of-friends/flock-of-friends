@@ -106,15 +106,12 @@ const BoredComponent = () => {
                 {isClicked
                     ? <img src={activityImage} />
                     : <img src={placeHolderImage}/>}
-
-
-
-                {/* <p className="activity">{activities.activity}</p> */}
-                {/* <p className="activitiesType">{activities.type}</p> */}
+                <div className="componentContainer">
                 <p className='participants'>Number of participants: {activities.participants}</p>
                 <Link to={`/boredForm/${activities.key}`} className="eventBtn">
                     <button >Create event</button>
                 </Link>
+                </div>
 
             </div>
         </div>
