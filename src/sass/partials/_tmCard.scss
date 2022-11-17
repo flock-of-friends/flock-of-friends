@@ -1,150 +1,292 @@
 @use "variables" as *;
 
-.tmCard {
-    position: absolute;
+.tmHeading {
+    background-image: url('../../assets/180.jpg');
+    background-size: auto;
+    padding: 50px 0px 20px 0px;
+    h1 {
+        font-family: $headingFont;
+        color: $blackColor;
+        width: 15%;
+        font-size: 1.4rem;
+        color: $whiteColor;
+        text-shadow: 0.7px 0.7px 1px $whiteColor;
+        margin: 10px 25px;
+    }
+    label {
+        display: none;
+    }
+    input,
+    select,
+    button {
+        border: 5px solid #71982f;
+        background-color: $whiteColor;
+        border-radius: 50px;
+        margin: 0 15px;
+        font-size: 0.8rem;
+    }
+    input,
+    .sortTM,
+    .categoryTM {
+        padding: 5px 30px;
+    }
+
+    input::placeholder {
+        color: $blackColor;
+    }
+    .tmButton {
+        padding: 5px 50px;
+        &:hover{
+            border: 5px solid #324314;
+            background-color: #71982f;
+            color: $whiteColor;
+            
+        }
+    }
+}
+h2 {
+    padding-top: 20px;
+    font-family: $bodyFont;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.tmContent {
+    background-color: #71982f;
+    li {
+        margin: 50px;
+        
+    }
+}
+
+.eventCatalogue {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    margin: 0px 100px;
+    // padding: 50px 0px;
+}
 
-    .imgContainer {
-        margin-top: 2rem;
-        width: 80%;
-        display: flex;
-        justify-content: space-around;
+.eventCard {
+    background: #f8bd01;
+    border:  10px double $whiteColor;
+    border-radius: 1rem;
+    // box-shadow: (1rem 1rem 0rem #006eb7);
+    margin: 0 auto;
+    width: calc(70% / 3);
 
-        img {
-            max-width: 100%;
-            border: 10px double #71982f;
-            border-radius: 1rem;
-            background: white;
+    h3 {
+        font-size: 0.9rem;
+    }
 
+    img {
+        max-width: 90%;
+        height: 150px;
+        object-fit: contain;
+    }
+    
+    p {
+        font-family: $bodyFont;
+        font-size: 0.7rem;
+        margin: 15px 40px;
+        text-align: left;
+
+        span {
+            text-transform: uppercase;
+            border-bottom: 4px solid $blueColor;
         }
     }
 
-    .description {
-        width: 80%;
-        height: 100px;
-        overflow-wrap: break-word;
-        margin-bottom: 1rem;
+    a {
+        padding: 5px 5px;
+        border: 2px solid $blackColor;
+        border-radius: 1rem;
+        margin: 10px 5px;
+        &:hover {
+            background-color: rgb(183, 183, 183);
+        }
+    }
+
+    a,
+    .eventButton {
+        font-family: $bodyFont;
+        background-color: white;
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        color: $blackColor;
+    }
+
+    .eventButton {
+        border: none;
+        padding: 0px;
+        &:hover
+            {
+            background-color: rgb(183, 183, 183);
+        }
+
+    }
+
+}
+
+.cardFlex{
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    list-style: none;
+}
+
+.testImg {
+    max-width: 90%;
+    height: auto;
+}
+
+@media (max-width: 1200px) {
+    .tmHeading {
+        h1 {
+            margin: 0 0 30px 50px;
+            font-size: 1.2rem;
+            color: #cf0e3d;
+        }
+    }
+
+    .eventCatalogue {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+
+    .eventCard {
+        width: calc( 60% / 2);
+        margin: 0 auto;
+
+        h3 {
+            font-size: 0.8rem;
+        }
 
         p {
-            font: 1.2rem $bodyFont;
-            color: rgb(68, 70, 67);
-            display: inline;
-            border-bottom: solid 1px #000;
-            padding-bottom: 0.02rem;
+            margin: 10px 30px;
+        }
 
-
+        a,
+        .eventButton {
+            font-size: 0.6rem;
+        }
+        
+        a {
+            padding: 5px 4px;
         }
     }
+}
 
-    .cardContent {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // height: 100vh;
+@media (max-width: 768px) {
+    .tmHeading {
+        background-size: auto;
 
-        border: 15px double #f7f5f1;
-        border-radius: 1rem;
+        h1 {
+            width: 25%;
+            color: black;
+        }
 
+        .tmButton {
+            margin: 10px;
+            width: 10%;
+            padding: 5px;
+        }
 
+        input,
+        select {
+            width: calc( 70% / 3);
+            margin: 0 5px;
+        }
 
-        // background: radial-gradient(circle at 50% 50%, #fdfcfa 0, #ffffff 50%, transparent 0), radial-gradient(circle at 50% 50%,#fcfcfb 0, #fcfcfc 50%, transparent 0);
-        // background-repeat: repeat-y;
-        // // background-color: white;
-        // background-size: 12px 12px;
-        // background-position: -12px calc(100% - 5px), calc(100% + 12px) 5px;
-
-
-        background-color: #71982f;
-
-        width: 80%;
-        margin: 2rem 4rem;
-
-        
+        input,
+        select,
+        .tmButton {
+            font-size: 0.7rem;
+        }
 
         h2 {
-            font: 3rem $headingFont;
-            color: $whiteColor;
-            margin: 1.5rem;
+            width: 70%;
+            margin: 0 auto;
+            text-shadow: 1px 1px 1px #f8bd01;
         }
-
-        .host {
-            font: 1.2rem $bodyFont;
-            margin-bottom: 2rem;
-            color: rgb(68, 70, 67);
-            span{
-                font:1.5rem $headingFont;
-            }
-        }
-
-        .activityInfo{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            h3{
-                font:italic 1.5rem $headingFont;
-                color: rgb(68, 70, 67);
-                margin-bottom: .8rem;
-            }
-
-            p{
-                font: 1.2rem $bodyFont;
-                color: rgb(68, 70, 67);
-                margin-bottom: .8rem;
-            }
-
-            .activitImgContainer{
-                width: 100%;
-                img {
-                    max-width: 80%;
-                    // height: 150px;
-                    border:1px solid  $whiteColor;
-                    border-radius: 2rem;
-                    margin-bottom: .8rem;
-                }
-            }
-            
-        
-        }
-
-        .buttons{
-            padding-bottom: 2rem;
-            margin-top: 1rem;
-
-            button{
-                border: none;
-                font: 1.3rem $bodyFont;
-                text-transform: capitalize;
-                cursor: pointer;
-                text-align: center;
-                transition: .3s;
-                border-radius: 2rem;
-                padding: .4rem .9rem;
-                width: 8.2rem;
-                color: $blackColor;
-                background-color: #f8bd01;
-                transition: 0.250s;
-                margin: .5rem auto;
-
-                &:hover,
-                &:focus {
-                    color:white;
-                }
-
-                &:first-child{
-                    margin-right: .5rem;
-                }
-
-            
-            }
-            
-        }
-
-
     }
 
+    .eventCatalogue {
+        margin: 0;
+    }
 
+    .eventCard {
+        width: calc(70% / 2);
+        
+        h3 {
+            font-size: 0.7rem;
+        }
+
+        p {
+            margin: 5px 20px;
+        }
+
+        a,
+        .eventButton {
+            font-size: 0.6rem;
+        }
+
+        a {
+            padding: 5px 4px;
+        }
+    }
+}
+
+@media (max-width: 320px) {
+    .tmHeading {
+        h1 {
+            font-size: 1.4rem;
+            width: 100%;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            input,
+            select,
+            .tmButton {
+                width: 80%;
+                margin: 10px auto;
+            }
+        }
+
+        h2 {
+            font-size: 0.6rem;
+        }
+    }
+
+    .eventCatalogue {
+        .eventCard {
+            width: 85%;
+            margin: 20px auto;
+
+            .cardFlex {
+                display: flex;
+                flex-direction: column;
+            }
+
+            p {
+                display: flex;
+                flex-direction: column;
+                span {
+                    width: 35%;
+                    border-bottom: 3px solid $blueColor;
+                    margin-bottom: 4px;
+                }
+            }
+
+            a {
+                margin: 5px auto;
+                width: 70%;
+            }
+        }
+    }
 }
