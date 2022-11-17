@@ -6,6 +6,8 @@ html{
 }
 
 .landing-container {
+    display: block;
+    overflow: auto;
     text-align: center;
     position: absolute;
     top: 20%;
@@ -23,7 +25,8 @@ html{
     justify-content: center;
 
     h1{
-        font: 3rem $headingFont;
+        font-family: $headingFont;
+        font-size: clamp(1rem, 10vw, 3rem); 
         color:$whiteColor;
         margin-bottom: 1rem;
         margin-top: 1.5rem;

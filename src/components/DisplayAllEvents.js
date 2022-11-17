@@ -11,18 +11,19 @@ const DisplayAllEvents = () => {
     // users can click to open the items displayed and can see events.
     return(
         <section className='allEventsSection'>
-            <h2>Check out all these events people have made!</h2>
+            <main>
+            <h2 className='allEventsHeading'>Check out events people have made</h2>
+            <div className="allEventsButtons">
             <Link to='/displayAllEvents/displayAllTmEvents'>
-            <button>tm</button>
+                <button>💰</button>
             </Link>
             <Link to='/displayAllEvents/displayAllBoredEvents'>
-            <button>bored</button>
-            </Link>
+                <button>🆓</button>
+            </Link></div>
             <Outlet />
+            </main>
         </section>
     )
 }
 
 export default DisplayAllEvents
-{/* <Link to={`/tmcard/${event.key}`}>
-</Link> */}

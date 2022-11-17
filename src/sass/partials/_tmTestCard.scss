@@ -7,6 +7,7 @@
     align-items: center;
     margin-top: 3rem;
     margin-bottom: 3rem;
+    
 
     .imgContainer {
         margin-top: 2rem;
@@ -45,62 +46,41 @@
         flex-direction: column;
         align-items: center;
         // height: 100vh;
-
+        overflow-y: scroll;
         border: 15px double #f7f5f1;
         border-radius: 1rem;
-
-
-
-        // background: radial-gradient(circle at 50% 50%, #fdfcfa 0, #ffffff 50%, transparent 0), radial-gradient(circle at 50% 50%,#fcfcfb 0, #fcfcfc 50%, transparent 0);
-        // background-repeat: repeat-y;
-        // // background-color: white;
-        // background-size: 12px 12px;
-        // background-position: -12px calc(100% - 5px), calc(100% + 12px) 5px;
-
-
         background-color: #71982f;
-
         width: 80%;
         margin: 2rem 4rem;
-
-
-
         h2 {
             font: 3rem $headingFont;
             color: $whiteColor;
             margin: 1.5rem;
         }
-
         .host {
             font: 1.2rem $bodyFont;
             margin-bottom: 2rem;
             color: rgb(68, 70, 67);
-
             span {
                 font: 1.5rem $headingFont;
             }
         }
-
         .activityInfo {
             display: flex;
             flex-direction: column;
             align-items: center;
-
             h3 {
                 font: italic 1.5rem $headingFont;
                 color: rgb(68, 70, 67);
                 margin-bottom: .8rem;
             }
-
             p {
                 font: 1.2rem $bodyFont;
                 color: rgb(68, 70, 67);
                 margin-bottom: .8rem;
             }
-
             .activitImgContainer {
                 width: 100%;
-
                 img {
                     max-width: 80%;
                     // height: 150px;
@@ -109,14 +89,10 @@
                     margin-bottom: .8rem;
                 }
             }
-
-
         }
-
         .buttons {
             padding-bottom: 2rem;
             margin-top: 1rem;
-
             button {
                 border: none;
                 font: 1.3rem $bodyFont;
@@ -131,44 +107,30 @@
                 background-color: #f8bd01;
                 transition: 0.250s;
                 margin: .5rem auto;
-
                 &:hover,
                 &:focus {
                     color: white;
                 }
-
                 &:first-child {
                     margin-right: .5rem;
                 }
-
-
             }
-
         }
-
-
     }
-
-
 }
-
 @media (max-width: 768px) {
     .tmCard {
         margin-top: 0;
-
         .imgContainer {
             width: 80%;
         }
-
         .cardContent {
             height: 600px;
-
             h2 {
                 font-size: 2rem;
                 padding: 0;
                 margin: 0.2rem 1rem;
             }
-
             .description p,
             .host {
                 font-size: 0.8rem;
@@ -176,27 +138,22 @@
                     font-size: 0.8rem;
                 }
             }
-
             .description,
             .host {
                 margin-bottom: 0.5rem;
             }
-
             .activityInfo {
                 h3 {
                     font-size: 1rem;
                     margin: 0.5rem;
                 }
-
                 .activitImgContainer {
                     max-width: 70%;
                 }
-
                 p {
                     font-size: 0.8rem;
                 }
             }
-
             .buttons button {
                 font-size: 0.8rem;
             }

@@ -23,7 +23,7 @@ const DisplayAllBoredEvents = () =>{
     return(
 
         <div className="eventListContainer">
-            <h3>Idea's we helped inspire</h3>
+            {/* <h3>Idea's we helped inspire</h3> */}
             <ul>
                 {
                   boredEvents.map((event) => {
@@ -32,8 +32,8 @@ const DisplayAllBoredEvents = () =>{
                         <div className="allEventsCard">
                             <li key={event.key}>
                                 <p>{event.name.eventName}</p>
-                                <a href={`${boredURL}${event.key}` }>
-                                    <button>Click here to learn more</button>
+                                <a className='inviteLink' href={`${boredURL}${event.key}` }>
+                                    Learn more
                                 </a>
                             </li>
                         </div>

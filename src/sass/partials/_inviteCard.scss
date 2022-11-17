@@ -27,10 +27,8 @@
         border: 10px double #f7f5f1;
         border-radius: 1rem;
         background-color: #71982f;
-
         width: clamp(375px, 75%, 750px);
         margin: 2rem auto;
-
         .activityInfo {
             display: flex;
             flex-direction: column;
@@ -60,8 +58,10 @@
         }
 
         .eventTheme{
+            padding-top: 0;
             text-transform: capitalize;
-            font: 3rem $headingFont;
+            font-family: $headingFont;
+            font-size: clamp(3rem, 0.25vw, 3rem);
             color: $whiteColor;
             margin: 1.5rem;
         }
