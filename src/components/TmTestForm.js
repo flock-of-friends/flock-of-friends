@@ -15,7 +15,7 @@ const TmTestForm = () => {
     const [eventInput, setEventInput] = useState('');
     const [hostInput, setHostInput] = useState('');
     const [descriptionInput, setDescriptionInput] = useState('');
-    const [inviteeInput, setInviteeInput] = useState('');
+    // const [inviteeInput, setInviteeInput] = useState('');
     let navigate = useNavigate();
 
     // this state will track data from db
@@ -62,7 +62,7 @@ const TmTestForm = () => {
         host: hostInput,
         description: descriptionInput,
         activityId: urlParamsValue.idd,
-        email: inviteeInput
+        // email: inviteeInput
     }
 
 
@@ -84,7 +84,7 @@ const TmTestForm = () => {
             navigate(`/tmcard/${invitations[0].key}`)
         }
     }
-    const email = `https://formsubmit.co/${inviteeInput}`;
+    // const email = `https://formsubmit.co/${inviteeInput}`;
 
 return (
 
@@ -96,7 +96,7 @@ return (
             <span class="letter"> ! </span>
         </h2>
         <div className='formContainer'>
-            <form action={email} method="POST" onSubmit={handleOnSubmit} >
+            <form method="POST" onSubmit={handleOnSubmit} >
                 <label htmlFor="event">Event Name</label>
                 <input type="text"
                     id='event'
