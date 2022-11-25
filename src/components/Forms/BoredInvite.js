@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useState, useEffect } from "react"
 import axios from "axios";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import {getDatabase, ref, get} from 'firebase/database'
 import bannerPicture from "../../assets/havingFun.jpg"
 // Config details
@@ -56,7 +56,6 @@ const apiCheck = (key) => {
             }).then((response) =>{
                 const apiImage = response.data.results[0].urls.thumb;
                 setActivityImage(apiImage)
-                console.log(apiImage)
             })
         })
        
@@ -77,7 +76,9 @@ if(!activity||!event){
 
         <section className="inviteCard">
             <div className="imgContainer">
+                <Link to={`/`}>
                 <img src={bannerPicture} alt="A line of people holding hands" />
+                </Link>
             </div>
             <div className="cardContent">
                 <h2 className="eventTheme">{event.eventName}</h2>

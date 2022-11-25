@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom';
 import axios from "axios"
-import { useState, useEffect } from 'react'
-import placeholderPic from '../assets/lion.jpg'
+import { useState } from 'react'
+import placeholderPic from '../assets/peopleHavingFun.jpg'
 
 
 const BoredComponent = () => {
-
-
     const getActivity = (e) => {
 
         e.preventDefault()
@@ -17,17 +15,12 @@ const BoredComponent = () => {
         };
         axios.request(options)
             .then((response) => {
-                console.log(response.data)
                 setActivities(response.data);
                 getPicture(response.data.activity)
             })
-        // getPicture()
-        console.log("this is the activities; ", activities.activity)
-
     }
 
     const getPicture = (info) => {
-        console.log(info)
         axios({
             url: 'https://api.unsplash.com/search/photos',
             method: 'GET',
@@ -38,39 +31,24 @@ const BoredComponent = () => {
                 per_page: 1
             }
         }).then((response) => {
-            console.log(response)
-            // setActivityImage(response.data.results[0])
             const apiImage = response.data.results[0].urls.thumb;
             setActivityImage(apiImage)
         })
     }
 
-
-
-
-
     //track data from API
     const [activities, setActivities] = useState("");
     //track data of user’s choice of event type
     const [userChoice, setUserChoice] = useState("")
-
     const [activityImage, setActivityImage] = useState({})
-
     const [isClicked, setIsClicked] = useState(false);
-
     const placeHolderImage = placeholderPic
-
-
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
     }
-
     const handleOnclick = () => {
         setIsClicked(true)
     }
-
-
-
     return (
         <div className='boredCatalogue'>
             <form action="submit" onSubmit={getActivity}>
@@ -88,34 +66,17 @@ const BoredComponent = () => {
                     <option value="charity">charity</option>
                 </select>
                 {/* sr-only not working here, need to be figured out later */}
-
-
                 <button className="activitiesBtn" onClick={handleOnclick}>Click for activities</button>
             </form>
-
             <div className='boredImg'>
                 <p className="activity">{activities.activity}</p>
-                {/* {activityImage?
-                
-                    <img src={activityImage}  />
-                    :
-                    "no picture"} */}
-
-                {/* <img src={activityImage} /> */}
-
                 {isClicked
                     ? <img src={activityImage} />
                     : <img src={placeHolderImage}/>}
-
-
-
-                {/* <p className="activity">{activities.activity}</p> */}
-                {/* <p className="activitiesType">{activities.type}</p> */}
                 <p className='participants'>Number of participants: {activities.participants}</p>
                 <Link to={`/boredForm/${activities.key}`} className="eventBtn">
                     <button >Create event</button>
                 </Link>
-
             </div>
         </div>
     );
