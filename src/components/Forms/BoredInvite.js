@@ -22,8 +22,6 @@ const BoredInvite =() =>{
 
    const userId = urlParamsValue.invites;
 
-
-
    useEffect(() => {
     const database = getDatabase(app);
     const userRef = ref(database, `bored/${userId}`);
