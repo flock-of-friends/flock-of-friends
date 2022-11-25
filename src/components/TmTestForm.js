@@ -1,5 +1,5 @@
 
-import { getDatabase, ref, push, onValue, get } from 'firebase/database';
+import { getDatabase, ref, push, onValue } from 'firebase/database';
 import { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -52,9 +52,9 @@ const TmTestForm = () => {
         setDescriptionInput(e.target.value)
     }
 
-    const handleHostInviteeChange = (e) => {
-        setInviteeInput(e.target.value)
-    }
+    // const handleHostInviteeChange = (e) => {
+    //     setInviteeInput(e.target.value)
+    // }
 
     //gather user's inputs and activity id
     const savedInputData = {

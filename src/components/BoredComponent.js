@@ -6,7 +6,6 @@ import placeholderPic from '../assets/333.jpg'
 
 const BoredComponent = () => {
     const getActivity = (e) => {
-
         e.preventDefault()
         const options = {
             url: `http://www.boredapi.com/api/activity?type=${userChoice}`,
@@ -32,6 +31,7 @@ const BoredComponent = () => {
             }
         }).then((response) => {
             const apiImage = response.data.results[0].urls.thumb;
+            setActivityImageAltText(response.data.results[0].alt_description)
             setActivityImage(apiImage)
         })
     }
@@ -41,6 +41,7 @@ const BoredComponent = () => {
     //track data of user’s choice of event type
     const [userChoice, setUserChoice] = useState("")
     const [activityImage, setActivityImage] = useState({})
+    const [activityImageAltText, setActivityImageAltText] = useState({})
     const [isClicked, setIsClicked] = useState(false);
     const placeHolderImage = placeholderPic
     const handleUserChoice = (e) => {
@@ -49,6 +50,8 @@ const BoredComponent = () => {
     const handleOnclick = () => {
         setIsClicked(true)
     }
+
+
     return (
         <div className='boredCatalogue'>
             <form action="submit" onSubmit={getActivity}>
@@ -71,8 +74,8 @@ const BoredComponent = () => {
             <div className='boredImg'>
                 <p className="activity">{activities.activity}</p>
                 {isClicked
-                    ? <img src={activityImage} />
-                    : <img src={placeHolderImage}/>}
+                    ? <img src={activityImage} alt={activityImageAltText} />
+                    : <img src={placeHolderImage} alt="A cartoon fairground"/>}
                 <p className='participants'>Number of participants: {activities.participants}</p>
                 <Link to={`/boredForm/${activities.key}`} className="eventBtn">
                     <button >Create event</button>

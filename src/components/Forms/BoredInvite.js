@@ -34,7 +34,7 @@ const BoredInvite =() =>{
     }).catch((error)=>{
         alert('Error.')
     })
-}, [])
+}, [userId])
 
 const apiCheck = (key) => {
     axios({
@@ -55,23 +55,24 @@ const apiCheck = (key) => {
                 }
             }).then((response) =>{
                 const apiImage = response.data.results[0].urls.thumb;
+                setActivityImageAltText(response.data.results[0].alt_description)
                 setActivityImage(apiImage)
             })
         })
        
 }
 const [activityImage, setActivityImage] = useState({})
+const [activityImageAltText, setActivityImageAltText] = useState({})
 
 
-const [text,setText] = useState(`localhost:3000/boredInvite/${userId}`);
-const copyText = ()=>{
-    navigator.clipboard.writeText(text)
-}
+// const [text,setText] = useState(`localhost:3000/boredInvite/${userId}`);
+// const copyText = ()=>{
+//     navigator.clipboard.writeText(text)
+// }
 
 if(!activity||!event){
     return null
 }
-
     return(
 
         <section className="inviteCard">
@@ -89,32 +90,15 @@ if(!activity||!event){
 
                 <div className="activityInfo">
                 <p className="activityTitle">{activity.activity}</p>
-                    <img className="inviteImage" src={activityImage}  />
+                    <img className="inviteImage" src={activityImage} alt={activityImageAltText}  />
                     <p>🗺 {event.eventLocation}</p>
                     <p>🕰 {event.eventTime}</p>
                 </div>
                 
-                <button className="inviteButton" onClick={copyText}>Copy Link</button>
+                {/* <button className="inviteButton" onClick={copyText}>Copy Link</button> */}
             </div>
             
-
         </section>
-
-
-        // <>
-        // <div className="imgContainer">
-        // <img src={bannerPicture} alt="" />
-        // </div>
-        // <div className="inviteCard">
-        //     <h2>{event.eventName}</h2>
-        //     <img className="inviteImage" src={activityImage}  />
-        //     <p>{event.hostName}</p>
-        //     {/* <p>{event.eventLocation}</p>
-        //     <p>{event.eventTime}</p> */}
-        //     <p>{event.eventDescription}</p>
-        //     <p>{activity.activity}</p>
-        // </div>
-        // </>
     )
 }
 

@@ -24,7 +24,7 @@ const TmTestCard = () => {
     const userId = urlParamsValue.idd;
 
 
-    const [text,setText] = useState(`localhost:3000/tmcard/${userId}`);
+    
 
 
     useEffect(() => {
@@ -36,7 +36,7 @@ const TmTestCard = () => {
         }).catch((error) => {
             alert(error)
         })
-    }, [])
+    }, [userId])
 
     const apiDada = (id) => {
         axios({
@@ -52,10 +52,10 @@ const TmTestCard = () => {
         })
     }
 
-
-    const copyText = () => {
-        navigator.clipboard.writeText(text)
-    }
+    // const [text,setText] = useState(`localhost:3000/tmcard/${userId}`);
+    // const copyText = () => {
+    //     navigator.clipboard.writeText(text)
+    // }
 
     if (!activity || !event) {
         return null
@@ -96,12 +96,10 @@ const TmTestCard = () => {
                     <p> 🗺 venue: {event._embedded.venues[0].name}</p>
                 </div>
 
-                <div className="buttons">
+                {/* <div className="buttons">
                     <button onClick={copyText}>Copy Link</button>
                     <a href={event.url}><button>Event Link</button></a>
-
-
-                </div>
+                </div> */}
             </div>
 
         </div>
