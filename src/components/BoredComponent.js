@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import axios from "axios"
-import { useState, useEffect } from 'react'
-import placeholderPic from '../assets/lion.jpg'
+import { useState } from 'react'
+import placeholderPic from '../assets/peopleHavingFun.jpg'
 
 
 const BoredComponent = () => {
@@ -17,17 +17,12 @@ const BoredComponent = () => {
         };
         axios.request(options)
             .then((response) => {
-                console.log(response.data)
                 setActivities(response.data);
                 getPicture(response.data.activity)
             })
-        // getPicture()
-        console.log("this is the activities; ", activities.activity)
-
     }
 
     const getPicture = (info) => {
-        console.log(info)
         axios({
             url: 'https://api.unsplash.com/search/photos',
             method: 'GET',
@@ -38,8 +33,6 @@ const BoredComponent = () => {
                 per_page: 1
             }
         }).then((response) => {
-            console.log(response)
-            // setActivityImage(response.data.results[0])
             const apiImage = response.data.results[0].urls.thumb;
             setActivityImage(apiImage)
         })

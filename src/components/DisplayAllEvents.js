@@ -1,7 +1,4 @@
-import { getDatabase, onValue, ref, } from 'firebase/database'
-import { useState, useEffect } from 'react'
 import {  Link, Outlet } from 'react-router-dom'
-import app from '../firebase'
 
 
 
@@ -24,5 +21,3 @@ const DisplayAllEvents = () => {
 }
 
 export default DisplayAllEvents
-{/* <Link to={`/tmcard/${event.key}`}>
-</Link> */}

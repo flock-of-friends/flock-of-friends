@@ -1,8 +1,6 @@
 
 import { getDatabase, ref, push, onValue, get } from 'firebase/database';
 import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import TmTestCard from "./TmTestCard";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import app from '../firebase';
@@ -12,8 +10,6 @@ import app from '../firebase';
 const TmTestForm = () => {
 
     const urlParamsValue = useParams();
-    console.log(urlParamsValue.idd);
-
 
     // this state will track user inputs from the form
     const [eventInput, setEventInput] = useState('');
@@ -34,17 +30,9 @@ const TmTestForm = () => {
 
         onValue(dbRef, (response) => {
             const data = response.val();
-
-            console.log(data)
-
-
             for (let key in data) {
                 newState.unshift({ key: key, name: data[key] })
             }
-
-            console.log(newState)
-
-
             //update state with the new array
             setInvitations(newState)
         })
@@ -74,55 +62,38 @@ const TmTestForm = () => {
         host: hostInput,
         description: descriptionInput,
         activityId: urlParamsValue.idd,
-      
         email: inviteeInput
     }
 
-    console.log(savedInputData)
 
 
     //control what happens after clicking "submit"
     const handleOnSubmit = (e) => {
-
         e.preventDefault();
-
         const database = getDatabase(app);
         const dbRef = ref(database, "/tm");
-
         //push user's inputs into firebase
         push(dbRef, savedInputData);
-
         //clear input
         setDescriptionInput('');
         setEventInput('');
         setHostInput('');
-
         if(!eventInput||!hostInput||!descriptionInput){
             alert('Please fill the form, thanks!')
         } else{
             navigate(`/tmcard/${invitations[0].key}`)
         }
-
-       
-
-       
-
-
     }
     const email = `https://formsubmit.co/${inviteeInput}`;
-    console.log(email)
 
-   
+return (
 
-    return (
-
-        <div className="tmForm wrapper" >
+    <div className="tmForm wrapper" >
         <h2 >
             <span class="letter">let's </span>&nbsp; 
             <span class="letter"> have</span>&nbsp;
             <span class="letter"> fun</span> 
             <span class="letter"> ! </span>
-            
         </h2>
         <div className='formContainer'>
             <form action={email} method="POST" onSubmit={handleOnSubmit} >
@@ -152,9 +123,9 @@ const TmTestForm = () => {
 
                 <button >submit</button>
             </form>
-        </div>
-        </div >
-    )
+            </div>
+    </div >
+)
 }
 
 export default TmTestForm

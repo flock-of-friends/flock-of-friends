@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from 'react';
-import { getDatabase, ref, push, onValue, get } from 'firebase/database';
+import { getDatabase, ref, get } from 'firebase/database';
 import app from '../firebase';
 
 import flag from '../assets/havingFun.jpg';
@@ -19,22 +19,19 @@ const TmTestCard = () => {
 
     //get params AKA firebase node key
     const urlParamsValue = useParams();
-    console.log(urlParamsValue.idd);
+
     const userId = urlParamsValue.idd;
-    console.log(userId)
+
 
     const [text,setText] = useState(`localhost:3000/tmcard/${userId}`);
-    console.log(text)
 
 
     useEffect(() => {
         const database = getDatabase(app);
         const userRef = ref(database, `tm/${userId}`);
         get(userRef).then((data) => {
-            // console.log(data.val())
             setActivity(data.val())
             apiDada(data.val().activityId)
-            console.log(data.val().activityId)
         }).catch((error) => {
             alert(error)
         })
@@ -49,7 +46,6 @@ const TmTestCard = () => {
                 apikey: '15DjuOnWDIAkW8iE9JGNwLR6qLSvAcjU',
             }
         }).then((response) => {
-            console.log(response.data)
             setEvent(response.data)
 
         })
