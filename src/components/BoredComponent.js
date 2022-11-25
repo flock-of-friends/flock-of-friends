@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import axios from "axios"
 import { useState } from 'react'
-import placeholderPic from '../assets/peopleHavingFun.jpg'
+import placeholderPic from 'http://placekitten.com/200/300'
 
 
 const BoredComponent = () => {
