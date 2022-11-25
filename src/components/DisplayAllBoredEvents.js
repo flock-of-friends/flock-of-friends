@@ -28,7 +28,7 @@ const DisplayAllBoredEvents = () =>{
             <ul>
                 {
                   boredEvents.map((event) => {
-                    console.log(event)
+                    
                     return(
                         <div className="allEventsCard">
                             <li key={event.key}>

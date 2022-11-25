@@ -8,7 +8,7 @@ const BoredComponent = () => {
     const getActivity = (e) => {
         e.preventDefault()
         const options = {
-            url: `http://www.boredapi.com/api/activity?type=${userChoice}`,
+            url: `https://proxy-ugwolsldnq-uc.a.run.app/http://www.boredapi.com/api/activity?type=${userChoice}`,
             method: 'GET',
             dataResponse: 'json'
         };
@@ -21,7 +21,7 @@ const BoredComponent = () => {
 
     const getPicture = (info) => {
         axios({
-            url: 'https://api.unsplash.com/search/photos',
+            url: 'https://proxy-ugwolsldnq-uc.a.run.app/https://api.unsplash.com/search/photos',
             method: 'GET',
             dataResponse: 'json',
             params: {

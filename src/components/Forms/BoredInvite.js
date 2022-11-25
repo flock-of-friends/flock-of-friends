@@ -38,14 +38,14 @@ const BoredInvite =() =>{
 
 const apiCheck = (key) => {
     axios({
-        url: `http://www.boredapi.com/api/activity?key=${key}`,
+        url: `https://proxy-ugwolsldnq-uc.a.run.app/http://www.boredapi.com/api/activity?key=${key}`,
         method: 'GET',
         dataResponse: 'json'
     })
         .then((response) => {
             setActivity(response.data);
             axios({
-                url: 'https://api.unsplash.com/search/photos',
+                url: 'https://proxy-ugwolsldnq-uc.a.run.app/https://api.unsplash.com/search/photos',
                 method: 'GET',
                 dataResponse: 'json',
                 params: {
