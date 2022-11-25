@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import axios from "axios";
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, get } from 'firebase/database';
@@ -64,7 +65,10 @@ const TmTestCard = () => {
 
         <div className="tmCard">
             <div className="imgContainer">
-                <img src={flag} alt="colorful flags" />
+            <Link to={`/`}>
+            <img src={flag} alt="colorful flags" />
+            </Link>
+                
             </div>
 
             <div className="cardContent">

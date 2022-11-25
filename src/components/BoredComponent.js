@@ -5,8 +5,6 @@ import placeholderPic from '../assets/peopleHavingFun.jpg'
 
 
 const BoredComponent = () => {
-
-
     const getActivity = (e) => {
 
         e.preventDefault()
@@ -38,32 +36,19 @@ const BoredComponent = () => {
         })
     }
 
-
-
-
-
     //track data from API
     const [activities, setActivities] = useState("");
     //track data of user’s choice of event type
     const [userChoice, setUserChoice] = useState("")
-
     const [activityImage, setActivityImage] = useState({})
-
     const [isClicked, setIsClicked] = useState(false);
-
     const placeHolderImage = placeholderPic
-
-
     const handleUserChoice = (e) => {
         setUserChoice(e.target.value);
     }
-
     const handleOnclick = () => {
         setIsClicked(true)
     }
-
-
-
     return (
         <div className='boredCatalogue'>
             <form action="submit" onSubmit={getActivity}>
@@ -81,34 +66,17 @@ const BoredComponent = () => {
                     <option value="charity">charity</option>
                 </select>
                 {/* sr-only not working here, need to be figured out later */}
-
-
                 <button className="activitiesBtn" onClick={handleOnclick}>Click for activities</button>
             </form>
-
             <div className='boredImg'>
                 <p className="activity">{activities.activity}</p>
-                {/* {activityImage?
-                
-                    <img src={activityImage}  />
-                    :
-                    "no picture"} */}
-
-                {/* <img src={activityImage} /> */}
-
                 {isClicked
                     ? <img src={activityImage} />
                     : <img src={placeHolderImage}/>}
-
-
-
-                {/* <p className="activity">{activities.activity}</p> */}
-                {/* <p className="activitiesType">{activities.type}</p> */}
                 <p className='participants'>Number of participants: {activities.participants}</p>
                 <Link to={`/boredForm/${activities.key}`} className="eventBtn">
                     <button >Create event</button>
                 </Link>
-
             </div>
         </div>
     );

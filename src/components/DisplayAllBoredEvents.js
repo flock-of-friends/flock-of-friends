@@ -1,5 +1,6 @@
 import { getDatabase, onValue, ref, } from 'firebase/database'
 import { useState, useEffect } from 'react'
+import {  Link } from 'react-router-dom'
 import app from '../firebase'
 
 const DisplayAllBoredEvents = () =>{
@@ -23,17 +24,19 @@ const DisplayAllBoredEvents = () =>{
     return(
 
         <div className="eventListContainer">
-            <h3>Idea's we helped inspire</h3>
+            {/* <h3>Idea's we helped inspire</h3> */}
             <ul>
                 {
                   boredEvents.map((event) => {
+                    console.log(event)
                     return(
                         <div className="allEventsCard">
                             <li key={event.key}>
                                 <p>{event.name.eventName}</p>
-                                <a href={`${boredURL}${event.key}` }>
-                                    <button>Click here to learn more</button>
-                                </a>
+                                <Link to={`${boredURL}${event.key}`} >
+                                    <button className='inviteLink'>Learn more</button>
+                                </Link>
+                                
                             </li>
                         </div>
                     )

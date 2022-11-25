@@ -1,20 +1,68 @@
 @use "variables" as *;
 
 .allEventsSection{
+    overflow-y: scroll;
+    padding: 0.5rem;
     position: absolute;
     top: 10%;
     bottom: 5%;
     left: 10%;
     right: 10%;
     background-color: #71982f;
-        align-items: center;
-        border-radius: 1rem;
-        border: 10px double $whiteColor;
+    align-items: center;
+    border-radius: 1rem;
+    border: 10px double $whiteColor;
+    .allEventsHeading{
+        font-family: $headingFont;
+        color: white;
+    }
     .allEventsCard{
-        background-color: #71982f;
+        padding: 0.2rem;
+        display: flex;
+        justify-content: center;
+        font-family: $bodyFont;
+        text-transform: capitalize;
+        margin: 0.2rem auto;
+        background-color: #f8bd01;
+        width: 66%;
         align-items: center;
         border-radius: 1rem;
         border: 10px double $whiteColor;
+        .inviteLink{
+            border: 3px solid black;
+            font-family: $bodyFont;
+            text-transform: capitalize;
+            cursor: pointer;
+            text-align: center;
+            transition: .3s;
+            border-radius: 2rem;
+            padding: .4rem .9rem;
+            width: 8rem;
+            color: $blackColor;
+            background-color: #f8bd01;
+            transition: 0.250s;
+            margin: .5rem auto;
+            &:hover,
+            &:focus {
+                background:$whiteColor;
+        }
+        }
+    }
+}
+.allEventsButtons{
+    button {
+        cursor: pointer;
+        background-color: #f8bd01;
+        margin: .5rem;
+        border-radius: 2rem;
+        padding: .6rem .9rem;
+        border: none;
+        font-family: $bodyFont;
+        transition: 0.500s;
+        &:hover,
+        &:focus {
+            background:$whiteColor;
+        }
     }
 }
 
